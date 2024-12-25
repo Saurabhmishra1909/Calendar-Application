@@ -1,10 +1,8 @@
-
 {
   "name": "calenderapp",
   "version": "0.1.0",
   "private": true,
-  "homepage":
-  "https://Saurabhmishra1909.github.io/Calendar-Application"
+  "homepage": "https://Saurabhmishra1909.github.io/Calendar-Application",
   "dependencies": {
     "@radix-ui/react-label": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.1",
