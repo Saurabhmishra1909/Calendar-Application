@@ -6,7 +6,6 @@ import AdminDashboard from './components/admin/AdminDashboard'; // Import AdminD
 import CompanyForm from './components/admin/CompanyForm';
 import CommunicationManager from './components/Communication/CommunicationManager';
 import CalendarView from './components/Calendar/CalenderView'; // Import CalendarView
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
