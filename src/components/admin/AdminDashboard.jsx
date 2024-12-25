@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 const AdminDashboard = () => {
   const [communicationMethods, setCommunicationMethods] = useState([
@@ -16,6 +15,17 @@ const AdminDashboard = () => {
     sequence: communicationMethods.length + 1,
     mandatory: false
   });
+
+  const handleDelete = (id) => {
+    setCommunicationMethods(prevMethods => {
+      const filteredMethods = prevMethods.filter(method => method.id !== id);
+      // Update sequences after deletion
+      return filteredMethods.map((method, index) => ({
+        ...method,
+        sequence: index + 1
+      }));
+    });
+  };
 
   const handleAddMethod = (e) => {
     e.preventDefault();
@@ -39,16 +49,21 @@ const AdminDashboard = () => {
     });
   };
 
+  const handleAddCompany = () => {
+    // Handle the add company action here
+    console.log('Add new company clicked');
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-        <Link 
-          to="/admin/company/new" 
+        <button 
+          onClick={handleAddCompany}
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
         >
           Add New Company
-        </Link>
+        </button>
       </div>
 
       <div className="bg-white rounded-lg shadow p-6">
@@ -81,7 +96,12 @@ const AdminDashboard = () => {
                     />
                   </td>
                   <td className="px-4 py-2">
-                    <button className="text-red-500 hover:text-red-700">Delete</button>
+                    <button 
+                      onClick={() => handleDelete(method.id)}
+                      className="text-red-500 hover:text-red-700"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}
