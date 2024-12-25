@@ -1,3 +1,4 @@
+@babel/plugin-proposal-private-property-in-object
 {
   "name": "calenderapp",
   "version": "0.1.0",
